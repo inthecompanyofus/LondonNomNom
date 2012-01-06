@@ -7,3 +7,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function (){
+        $('#meal_when').datepicker({ dateFormat: 'dd-mm-yy' });
+		
+		$('#meals_wrapper').isotope({
+		  // options
+		  itemSelector : '.meals',
+		  layoutMode : 'fitRows'
+		});
+});

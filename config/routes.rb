@@ -1,10 +1,14 @@
 Nomnomnom::Application.routes.draw do
   
 
-  root :to => "home#index"
+  get "users/show"
 
+  resources :locations
+  resources :meals
+  root :to => "home#index"
   devise_for :users
-  resources :users, :only => :show
+  resources :users, :only => :show do
+  end
 
 
   # The priority is based upon order of creation:

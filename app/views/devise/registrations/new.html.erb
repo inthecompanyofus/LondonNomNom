@@ -1,20 +1,40 @@
-<h2>Sign up</h2>
-
+<div class="sixteen columns">	<!-- 16 -->
+	<div id="mealheader">
+		<h2>Welcome to London nom nom dot com!</h2>
+	</div>	
+	
+	
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-<p><%= f.label :name %><br />
-<%= f.text_field :name %></p>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+<div class="third columns alpha">
+	<div id="newname">
+			<p><%= f.label :name %><br />
+			<%= f.text_field :name %></p>
+	</div>
+	<div id="newemail">
+  			<div><%= f.label :email %><br />
+  			<%= f.email_field :email %></div>
+	</div>
+</div>
+<div class="third columns">
+	<div id="newpass">
+  			<div><%= f.label :password %><br />
+  			<%= f.password_field :password %></div>
+	</div>
+	<div id="newpassconfirm">
+  			<div><%= f.label :password_confirmation %><br />
+  			<%= f.password_field :password_confirmation %></div>
+	</div>
+</div>
+<div class="third columns omega">
+	<div id="newface">
+		<%= f.submit "Sign up" %>
+		</div>
+	<div id="newface">
+		<%= render :partial => "devise/shared/links" %>
+	</div>
+	
+</div>
+</div>
+</div>
 <% end %>
-
-<%= render :partial => "devise/shared/links" %>

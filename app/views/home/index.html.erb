@@ -1,4 +1,90 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div id ="food" class="sixteen-columns">
+	<div class="ribbon-wrapper">
+		<div class="ribbon-front">
+			<% if user_signed_in? %>
+			  Signed in as <%= current_user.email %>. Not you?
+			  <button type="submit"><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></button>
+			<button type="submit"><%= link_to 'New Meal', new_meal_path %></button>
+		</div>
+		<div class="ribbon-edge-topleft"></div>
+		<div class="ribbon-edge-topright"></div>
+		<div class="ribbon-edge-bottomleft"></div>
+		<div class="ribbon-edge-bottomright"></div>
+		<div class="ribbon-back-left"></div>
+		<div class="ribbon-back-right"></div>
+	</div>
+	</div>	
+	
+<h3>Listing users</h3>
+	<% @users.each do |user| %>
+		<div id="meals" class="four columns grid-item">
+			<div id="mealwhen">	
+						<%= user.name %>
+			</div>
+			<div id="mealtitle">
+				<h6><%= user.meals %></h6>
+			</div>
+			<div id="mealimage">
+						<div class="scale-with-grid"><%= image_tag user.avatar.url (:medium) %></div>
+			</div>	
+			<div id="mealbuttons">
+			<button type="submit"><%= link_to 'Show', user %></td></button>
+			<button type="submit"><%= link_to('Edit account', edit_user_registration_path) %></button>
+			<button type="submit"><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td></button>
+			</div>
+			<div id="mealbuttons">
+				<%= tweet_button %>
+			</div>	
+		</div>	
+	<% end %>
+</div>
+<% calendar_for @meal do |calendar| %>
+    <% calendar.day(:day_method => :when) do |date, meal| %>
+      <%= date.day %>
+    <% end %>
+	<% @users.each do |user| %>
+	<% end %>
+  <% end %>
+</div>
+<% else %>
+ Lunchtimes are boring, let's make them fun!
+ <button type="submit"><%= link_to('Login', new_user_session_path)  %> </button>
+ <button type="submit"><%= link_to('Sign up', new_user_registration_path)  %></button>
+</div>
+	<div class="ribbon-edge-topleft"></div>
+	<div class="ribbon-edge-topright"></div>
+	<div class="ribbon-edge-bottomleft"></div>
+	<div class="ribbon-edge-bottomright"></div>
+	<div class="ribbon-back-left"></div>
+	<div class="ribbon-back-right"></div>
+</div>
+</div>		
+<h3>Listing meals</h3>
+	<% @users.each do |user| %>
+		<div id="meals" class="four columns grid-item">
+			<div id="mealwhen">	
+						<%= meal.name %>
+			</div>
+			<div id="mealtitle">
+				<h6><%= meal.email %></h6>
+			</div>
+			<div id="mealimage">
+						<div class="scale-with-grid"><%= image_tag user.avatar.url (:medium) %></div>
+			</div>
+			<div id="mealdesc">	
+				<p><%= meal.description %></p	>
+			</div>
+			<div id="mealmap">
+				<div class="scale-with-grid">
+					<img src="<%= meal.image_url %>">
+					</div>	
+			</div>
+			<div id="mealbuttons">
+				<%= tweet_button %>
+			</div>	
+		</div>	
+	<% end %><% end %>	
+</div>
+</div> 
+
+	

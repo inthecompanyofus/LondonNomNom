@@ -1,18 +1,29 @@
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Edit account', edit_user_registration_path) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Sign up', new_user_registration_path)  %>
-  </li>
-<% end %>
+<div class="navigation-wrapper">
+		<div class="navigation-front">
+			<% if user_signed_in? %>
+			  <li>
+			  <button type="submit"><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></button>     
+			  </li>
+			<% else %>
+			  <li>
+			  <button type="submit"><%= link_to('Login', new_user_session_path)  %></button>
+			  </li>
+			<% end %>
+			<% if user_signed_in? %>
+			  <li>
+			  <button type="submit"><%= link_to('Edit account', edit_user_registration_path) %></button>
+			  </li>
+			<% else %>
+			  <li>
+			  <button type="submit"><%= link_to('Sign up', new_user_registration_path)  %></button>
+			  </li>
+			<% end %>
+			
+		</div>
+		<div class="navigation-edge-topleft"></div>
+		<div class="navigation-edge-topright"></div>
+		<div class="navigation-edge-bottomleft"></div>
+		<div class="navigation-edge-bottomright"></div>
+		<div class="navigation-back-left"></div>
+	</div>
+

@@ -9,6 +9,9 @@ header nav ul {
   list-style: none;
   margin: 0 0 2em;
   padding: 0;
+  border-top: 2px dashed #EEE;
+border-bottom: 2px dashed #EEE;
+}
 }
 header nav ul li {
   display: inline;
